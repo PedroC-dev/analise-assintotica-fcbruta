@@ -1,0 +1,121 @@
+#include <iostream>
+#include <vector>
+#include <chrono>
+
+using namespace std;
+
+// 1. Busca Linear
+int busca_linear(const vector<int>& vetor, int x) {
+    for (int i = 0; i < vetor.size(); i++) {
+        if (vetor[i] == x) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// 2. Busca Linear em Vetor Ordenado
+int busca_linear_ordenada(const vector<int>& vetor, int x) {
+    for (int i = 0; i < vetor.size(); i++) {
+        if (vetor[i] == x) {
+            return i;
+        }
+
+        if (vetor[i] > x) {
+            return -1;
+        }
+    }
+    return -1;
+}
+
+// 3. Busca Binária
+int busca_binaria(const vector<int>& vetor, int x) {
+    int inicio = 0;
+    int fim = vetor.size() - 1;
+
+    while (inicio <= fim) {
+        int meio = inicio + (fim - inicio) / 2;
+
+        if (vetor[meio] == x) {
+            return meio;
+        }
+        else if (vetor[meio] < x) {
+            inicio = meio + 1;
+        }
+        else {
+            fim = meio - 1;
+        }
+    }
+
+    return -1;
+}
+
+int main() {
+
+    vector<int> tamanhos = {1000, 10000, 100000, 1000000};
+
+    const int repeticoes = 1000;
+
+    cout << "===== EXPERIMENTO EMPIRICO DOS ALGORITMOS DE BUSCA =====\n";
+    cout << "Pior caso: X = n + 1 (elemento inexistente)\n";
+    cout << "Tempo total de " << repeticoes << " buscas\n\n";
+
+    for (int n : tamanhos) {
+
+        vector<int> vetor(n);
+
+        for (int i = 0; i < n; i++) {
+            vetor[i] = i;
+        }
+
+        int alvo = n + 1;
+
+        // Busca Linear
+        auto inicio = chrono::high_resolution_clock::now();
+
+        for (int r = 0; r < repeticoes; r++) {
+            busca_linear(vetor, alvo);
+        }
+
+        auto fim = chrono::high_resolution_clock::now();
+
+        chrono::duration<double, milli> tempo_linear = fim - inicio;
+
+        // Busca Linear Ordenada
+        inicio = chrono::high_resolution_clock::now();
+
+        for (int r = 0; r < repeticoes; r++) {
+            busca_linear_ordenada(vetor, alvo);
+        }
+
+        fim = chrono::high_resolution_clock::now();
+
+        chrono::duration<double, milli> tempo_linear_ord = fim - inicio;
+
+        // Busca Binária
+        inicio = chrono::high_resolution_clock::now();
+
+        for (int r = 0; r < repeticoes; r++) {
+            busca_binaria(vetor, alvo);
+        }
+
+        fim = chrono::high_resolution_clock::now();
+
+        chrono::duration<double, milli> tempo_binaria = fim - inicio;
+
+        // Resultados
+        cout << "Tamanho N = " << n << "\n";
+        cout << "Busca Linear            : "
+             << tempo_linear.count() << " ms\n";
+
+        cout << "Busca Linear Ordenada   : "
+             << tempo_linear_ord.count() << " ms\n";
+
+        cout << "Busca Binaria           : "
+             << tempo_binaria.count() << " ms\n";
+
+        cout << "--------------------------------------------------\n";
+    }
+
+    return 0;
+}
