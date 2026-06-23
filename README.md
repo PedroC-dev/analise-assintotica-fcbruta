@@ -1,0 +1,1 @@
+# -An-lise-Assint-tica-e-For-a-Bruta-Buscas-e-Ordena-o-por-Inser-o
