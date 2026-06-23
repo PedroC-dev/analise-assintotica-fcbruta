@@ -1,4 +1,4 @@
-# Projeto: Análise e Complexidade de Algoritmos — Grupo 1
+# Projeto: Análise e Complexidade de Algoritmos
 
 Este projeto foi desenvolvido como parte da avaliação prática da disciplina de Análise e Complexidade de Algoritmos do IFSP Campus Birigui. O objetivo principal foi explorar os conceitos de análise assintótica, algoritmos de força bruta e estruturas de busca e ordenação.
 
@@ -12,5 +12,5 @@ Este projeto foi desenvolvido como parte da avaliação prática da disciplina d
 Abaixo está a captura de tela demonstrando o funcionamento e a validação dos algoritmos de ordenação implementados:
 
 <p align="center">
-  <img src="./image_419886.png" alt="Captura de Ordenação" width="600px">
+  <img src="./Image/captura ord" alt="Captura de Ordenação" width="600px">
 </p>
