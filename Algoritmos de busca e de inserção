@@ -1,0 +1,83 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 1. Busca Linear (Simples)
+int busca_linear(const vector<int>& vetor, int x) {
+    for (int i = 0; i < vetor.size(); i++) {
+        if (vetor[i] == x) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// 2. Busca Linear em Vetor Ordenado
+int busca_linear_ordenada(const vector<int>& vetor, int x) {
+    for (int i = 0; i < vetor.size(); i++) {
+        if (vetor[i] == x) {
+            return i;
+        } else if (vetor[i] > x) {
+            return -1;
+        }
+    }
+    return -1;
+}
+
+// 3. Busca Binária
+int busca_binaria(const vector<int>& vetor, int x) {
+    int inicio = 0;
+    int fim = vetor.size() - 1;
+
+    while (inicio <= fim) {
+        int meio = inicio + (fim - inicio) / 2;
+
+        if (vetor[meio] == x) {
+            return meio;
+        } else if (vetor[meio] < x) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+    return -1;
+}
+
+// 4. Ordenação por Inserção (Insertion Sort)
+void insertion_sort(vector<int>& vetor) {
+    int n = vetor.size();
+    for (int i = 1; i < n; i++) {
+        int chave = vetor[i];
+        int j = i - 1;
+
+        while (j >= 0 && vetor[j] > chave) {
+            vetor[j + 1] = vetor[j];
+            j--;
+        }
+        vetor[j + 1] = chave;
+    }
+}
+
+// Função Principal para testar
+int main() {
+    vector<int> vetor_desordenado = {12, 11, 13, 5, 6};
+    
+    cout << "Ordenando o vetor..." << endl;
+    insertion_sort(vetor_desordenado);
+    
+    cout << "Vetor ordenado: ";
+    for(int num : vetor_desordenado) {
+        cout << num << " ";
+    }
+    cout << "\n----------------------------------------\n";
+    
+    int elemento_procurado = 12;
+    cout << "Buscando o elemento: " << elemento_procurado << endl;
+    
+    cout << "Indice (Busca Linear): " << busca_linear(vetor_desordenado, elemento_procurado) << endl;
+    cout << "Indice (Busca Linear Ordenada): " << busca_linear_ordenada(vetor_desordenado, elemento_procurado) << endl;
+    cout << "Indice (Busca Binaria): " << busca_binaria(vetor_desordenado, elemento_procurado) << endl;
+
+    return 0;
+}
