@@ -147,7 +147,7 @@ Os experimentos foram realizados utilizando vetores ordenados de tamanhos 10³, 
 A imagem abaixo apresenta a execução do experimento e os tempos obtidos para cada algoritmo.
 
 <p align="center">
-  <img src="./Image/resultado_console.png" alt="Resultado do Experimento" width="800px">
+  <img src="./Image/resultado_console.png.png" alt="Resultado do Experimento" width="800px">
 </p>
 
 ### Resultados Gráficos
@@ -155,7 +155,7 @@ A imagem abaixo apresenta a execução do experimento e os tempos obtidos para c
 #### 1. Busca Linear
 
 <p align="center">
-  <img src="./Image/busca_linear.png" alt="Busca Linear" width="800px">
+  <img src="./Image/busca_linear.png.jpeg" alt="Busca Linear" width="800px">
 </p>
 
 Observa-se um crescimento aproximadamente linear do tempo de execução conforme o tamanho do vetor aumenta, comportamento compatível com a complexidade teórica **O(n)**.
@@ -163,7 +163,7 @@ Observa-se um crescimento aproximadamente linear do tempo de execução conforme
 #### 2. Busca Linear Ordenada
 
 <p align="center">
-  <img src="./Image/busca_linear_ordenada.png" alt="Busca Linear Ordenada" width="800px">
+  <img src="./Image/busca_linear_ordenada.png.jpeg" alt="Busca Linear Ordenada" width="800px">
 </p>
 
 Como o elemento procurado é maior que todos os elementos do vetor, a busca linear ordenada também percorre todas as posições, apresentando comportamento linear **O(n)**.
@@ -171,7 +171,7 @@ Como o elemento procurado é maior que todos os elementos do vetor, a busca line
 #### 3. Busca Binária
 
 <p align="center">
-  <img src="./Image/busca_binaria.png" alt="Busca Binária" width="800px">
+  <img src="./Image/busca_binaria.png.jpeg" alt="Busca Binária" width="800px">
 </p>
 
 Mesmo para vetores com um milhão de elementos, o tempo de execução permanece praticamente constante quando comparado às buscas lineares. Isso ocorre porque a busca binária possui complexidade **O(log n)**, necessitando de apenas algumas divisões sucessivas do vetor para concluir que o elemento não existe.
@@ -184,7 +184,6 @@ Os resultados obtidos confirmam empiricamente as previsões da análise assintó
 - A **Busca Binária** apresentou crescimento extremamente reduzido (**O(log n)**).
 - À medida que o tamanho do vetor aumenta, a diferença de desempenho entre os algoritmos torna-se cada vez mais significativa.
 
-Dessa forma, os experimentos validam na prática os resultados teóricos estudados na disciplina de Análise e Complexidade de Algoritmos.
 ---
 
 ## Referências Bibliográficas
