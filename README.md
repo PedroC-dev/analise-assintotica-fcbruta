@@ -12,5 +12,5 @@ Este projeto foi desenvolvido como parte da avaliação prática da disciplina d
 Abaixo está a captura de tela demonstrando o funcionamento e a validação dos algoritmos de ordenação implementados:
 
 <p align="center">
-  <img src="./Image/captura ord" alt="Captura de Ordenação" width="600px">
+  <img src="./Image/captura ord.png" alt="Captura de Ordenação" width="600px">
 </p>
