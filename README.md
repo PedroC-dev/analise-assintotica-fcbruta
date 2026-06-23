@@ -62,10 +62,129 @@ Para valores de $n \ge 2$, o termo $\frac{1}{2n}$ será sempre menor ou igual a 
 $$\frac{1}{2} - \frac{1}{4} = \frac{1}{4}$$
 
 Portanto, escolhendo a constante $c_1 = \frac{1}{4}$ e assumindo que $n \ge 2$ ($n_0 = 2$), a desigualdade é garantida. Concluímos que $T(n) = \Omega(n^2)$.
+<hr>
 
-### Conclusão
-Como provamos que a função do tempo de execução é limitada superiormente por $\frac{1}{2} n^2$ e inferiormente por $\frac{1}{4} n^2$ a partir de $n = 2$, está matematicamente provado que o *Insertion Sort* no pior caso é **$\Theta(n^2)$**.
+<h2>Experimento Empírico dos Algoritmos de Busca (C++)</h2>
 
+<p>
+O experimento empírico teve como objetivo avaliar o tempo de execução real dos algoritmos de busca sob as piores condições possíveis. Para isso, foram utilizados vetores ordenados com diferentes ordens de grandeza:
+</p>
+
+<p align="center">
+<strong>n = 10³, 10⁴, 10⁵ e 10⁶</strong>
+</p>
+
+<h3>Definição do Pior Caso</h3>
+
+<p>
+O elemento procurado foi definido como:
+</p>
+
+<p align="center">
+<strong>X = n + 1</strong>
+</p>
+
+<p>
+Como esse valor é maior que todos os elementos presentes no vetor e não pertence ao conjunto de dados, cada algoritmo é forçado a executar sua quantidade máxima de operações:
+</p>
+
+<ul>
+    <li><strong>Busca Linear:</strong> percorre todos os elementos do vetor, realizando <em>n</em> comparações no pior caso (<strong>O(n)</strong>).</li>
+    <li><strong>Busca Linear em Vetor Ordenado:</strong> também percorre o vetor até sua última posição antes de concluir que o elemento não existe (<strong>O(n)</strong>).</li>
+    <li><strong>Busca Binária:</strong> realiza o número máximo de divisões sucessivas do vetor até esgotar o intervalo de busca (<strong>O(log n)</strong>).</li>
+</ul>
+
+<h3>Metodologia Experimental</h3>
+
+<p>
+Para a coleta dos tempos de execução foi utilizada a biblioteca padrão
+<code>&lt;chrono&gt;</code> da linguagem C++, permitindo medições em alta resolução.
+Os vetores foram gerados ordenados e preenchidos sequencialmente, garantindo
+que todos os algoritmos fossem executados sob as mesmas condições.
+</p>
+
+<p>
+A estrutura completa do experimento, incluindo o código-fonte utilizado para a geração dos dados e medições, encontra-se disponível neste repositório GitHub.
+</p>
+
+<h3>Objetivo da Análise</h3>
+
+<p>
+Os resultados obtidos permitem comparar o comportamento observado experimentalmente com as previsões da análise assintótica estudada em sala de aula, evidenciando a diferença prática entre algoritmos de complexidade linear <strong>O(n)</strong> e logarítmica <strong>O(log n)</strong>.
+</p>
+## Experimento Empírico dos Algoritmos de Busca (C++)
+
+O experimento empírico teve como objetivo avaliar o tempo de execução real dos algoritmos de busca sob as piores condições possíveis. Para isso, foram utilizados vetores ordenados com diferentes ordens de grandeza:
+
+<p align="center">
+<strong>n = 10³, 10⁴, 10⁵ e 10⁶</strong>
+</p>
+
+### Definição do Pior Caso
+
+O elemento procurado foi definido como:
+
+<p align="center">
+<strong>X = n + 1</strong>
+</p>
+
+Como esse valor é maior que todos os elementos presentes no vetor e não pertence ao conjunto de dados, cada algoritmo é forçado a executar sua quantidade máxima de operações:
+
+- **Busca Linear:** percorre todos os elementos do vetor, realizando *n* comparações no pior caso (**O(n)**).
+- **Busca Linear em Vetor Ordenado:** também percorre todo o vetor, pois o valor procurado é maior que todos os elementos existentes (**O(n)**).
+- **Busca Binária:** realiza o número máximo de divisões sucessivas do vetor até esgotar o intervalo de busca (**O(log n)**).
+
+### Metodologia Experimental
+
+Para a coleta dos tempos de execução foi utilizada a biblioteca padrão `chrono` da linguagem C++.
+
+Como o tempo de execução da busca binária é extremamente pequeno para os tamanhos analisados, cada algoritmo foi executado repetidamente, e o tempo total foi medido. Essa abordagem reduz erros de medição e permite uma comparação mais precisa entre os algoritmos.
+
+Os experimentos foram realizados utilizando vetores ordenados de tamanhos 10³, 10⁴, 10⁵ e 10⁶, contendo valores sequenciais. O elemento buscado foi definido como `X = n + 1`, garantindo que ele não estivesse presente no vetor e forçando a execução do pior caso para cada algoritmo.
+
+### Saída do Programa
+
+A imagem abaixo apresenta a execução do experimento e os tempos obtidos para cada algoritmo.
+
+<p align="center">
+  <img src="./Image/resultado_console.png" alt="Resultado do Experimento" width="800px">
+</p>
+
+### Resultados Gráficos
+
+#### 1. Busca Linear
+
+<p align="center">
+  <img src="./Image/busca_linear.png" alt="Busca Linear" width="800px">
+</p>
+
+Observa-se um crescimento aproximadamente linear do tempo de execução conforme o tamanho do vetor aumenta, comportamento compatível com a complexidade teórica **O(n)**.
+
+#### 2. Busca Linear Ordenada
+
+<p align="center">
+  <img src="./Image/busca_linear_ordenada.png" alt="Busca Linear Ordenada" width="800px">
+</p>
+
+Como o elemento procurado é maior que todos os elementos do vetor, a busca linear ordenada também percorre todas as posições, apresentando comportamento linear **O(n)**.
+
+#### 3. Busca Binária
+
+<p align="center">
+  <img src="./Image/busca_binaria.png" alt="Busca Binária" width="800px">
+</p>
+
+Mesmo para vetores com um milhão de elementos, o tempo de execução permanece praticamente constante quando comparado às buscas lineares. Isso ocorre porque a busca binária possui complexidade **O(log n)**, necessitando de apenas algumas divisões sucessivas do vetor para concluir que o elemento não existe.
+
+### Conclusão Experimental
+
+Os resultados obtidos confirmam empiricamente as previsões da análise assintótica:
+
+- As buscas **Linear** e **Linear Ordenada** apresentaram crescimento proporcional ao tamanho da entrada (**O(n)**).
+- A **Busca Binária** apresentou crescimento extremamente reduzido (**O(log n)**).
+- À medida que o tamanho do vetor aumenta, a diferença de desempenho entre os algoritmos torna-se cada vez mais significativa.
+
+Dessa forma, os experimentos validam na prática os resultados teóricos estudados na disciplina de Análise e Complexidade de Algoritmos.
 ---
 
 ## Referências Bibliográficas
