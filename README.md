@@ -189,3 +189,7 @@ Os resultados obtidos confirmam empiricamente as previsões da análise assintó
 ## Referências Bibliográficas
 
 * CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. 3. ed. Rio de Janeiro: Elsevier, 2012.
+* Sipser, M. Introdução à teoria da computação, 2ª ed. Thomson Learning, 2007.
+* Vieira, L. T.; Veloso, P. A. S. Complexidade de Algoritmos, Vol. 3. Bookman, 2013.
+* QUEM DISSE, Carla. Corretude de algoritmos (iterativos) - Invariante de laço. YouTube, 7 fev. 2022. Disponível em: https://youtu.be/AQ7A2Z0TdM4. Acesso em: 24 jun. 2026.
+
