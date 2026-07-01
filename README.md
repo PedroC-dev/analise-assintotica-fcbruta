@@ -186,7 +186,7 @@ Os resultados obtidos confirmam empiricamente as previsões da análise assintó
 
 ---
 ## Uso de IA 
-*Houve uso de ferramentas de inteligência artificial por parte dos membros para pesquisa e auxílio na escrita.
+* Houve uso de ferramentas de inteligência artificial por parte dos membros para pesquisa e auxílio na escrita.
 ## Referências Bibliográficas
 
 * CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. 3. ed. Rio de Janeiro: Elsevier, 2012.
